@@ -36,7 +36,7 @@ exports.config = {
     console.log("Connecting local");
     return new Promise(function(resolve, reject){
       exports.bs_local = new browserstack.Local();
-      exports.bs_local.start({'key': exports.config.key }, function(error) {
+      exports.bs_local.start({ 'key': exports.config.key, force: true }, function (error) {
         if (error) return reject(error);
         console.log('Connected. Now testing...');
 
