@@ -17,7 +17,7 @@ exports.config = {
     'browserstack.local': true
   }],
 
-  logLevel: 'verbose',
+  logLevel: 'info',
   coloredLogs: true,
   screenshotPath: './errorShots/',
   baseUrl: '',

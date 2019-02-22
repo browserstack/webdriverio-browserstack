@@ -14,7 +14,7 @@ exports.config = {
     build: 'webdriver-browserstack'
   }],
 
-  logLevel: 'verbose',
+  logLevel: 'info',
   coloredLogs: true,
   screenshotPath: './errorShots/',
   baseUrl: '',
@@ -22,7 +22,7 @@ exports.config = {
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
   host: 'hub.browserstack.com',
-  
+
   framework: 'mocha',
   mochaOpts: {
       ui: 'bdd'
