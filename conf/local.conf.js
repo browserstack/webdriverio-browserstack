@@ -13,7 +13,7 @@ exports.config = {
   capabilities: [{
     browser: 'chrome',
     name: 'local_test',
-    build: 'webdriver-browserstack',
+    build: 'browserstack-build-1',
     'browserstack.local': true
   }],
 

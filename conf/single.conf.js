@@ -11,7 +11,7 @@ exports.config = {
   capabilities: [{
     browser: 'Chrome',
     name: 'single_test',
-    build: 'webdriver-browserstack'
+    build: 'browserstack-build-1'
   }],
 
   logLevel: 'warn',
