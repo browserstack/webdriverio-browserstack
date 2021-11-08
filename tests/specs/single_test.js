@@ -6,7 +6,7 @@ describe("Google's Search Functionality", () => {
 
     try {
       (await browser.getTitle()).match(/BrowserStack/i);
-    } catch (e) {  
+    } catch (e) {
       await browser.elementSubmit(inputForm.elementId); // this helps in remaining cases, i.e. iPhone
     }
 
