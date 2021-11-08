@@ -2,7 +2,7 @@ describe("Google's Search Functionality", () => {
   it("can find search results", async () => {
     await browser.url("https://www.google.com/ncr");
     const inputForm = await $("//input[@name='q']");
-    await inputForm.setValue(["BrowserStack", "Enter"]); // this helps in majority desktops 
+    await inputForm.setValue(["BrowserStack", "Enter"]); // this helps in majority desktops
 
     try {
       (await browser.getTitle()).match(/BrowserStack/i);
