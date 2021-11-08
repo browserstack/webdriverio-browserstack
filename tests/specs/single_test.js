@@ -5,7 +5,7 @@ describe("Google's Search Functionality", () => {
     await inputForm.setValue(["BrowserStack", "Enter"]); // this helps in majority desktops
 
     try {
-      (await browser.getTitle()).match(/BrowserStack/i);
+      await browser.waitUntil(async () => (await browser.getTitle()).match(/BrowserStack/i));
     } catch (e) {
       await browser.elementSubmit(inputForm.elementId); // this helps in remaining cases, i.e. iPhone
     }
