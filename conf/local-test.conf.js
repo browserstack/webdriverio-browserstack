@@ -1,30 +1,16 @@
-var browserstack = require('browserstack-local');
+const browserstack = require('browserstack-local');
+const { config: baseConfig }= require("./base.conf.js");
 
-exports.config = {
-  user: process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
-  key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACC_KEY',
-
-  updateJob: false,
-  specs: [
-    './tests/specs/local_test.js'
-  ],
-  exclude: [],
-
+const localConfig = {
   capabilities: [{
-    browserName: 'chrome',
-    name: 'local_test',
-    build: 'browserstack-build-1',
-    'browserstack.local': true
+    browserName: 'Chrome',
+    "bstack:options": {
+      sessionName: 'Local Test',
+      buildName: 'browserstack-build-1',
+      local: true, // For enabling local testing
+    }
   }],
-
-  logLevel: 'warn',
-  coloredLogs: true,
-  screenshotPath: './errorShots/',
-  baseUrl: '',
-  waitforTimeout: 10000,
-  connectionRetryTimeout: 90000,
-  connectionRetryCount: 3,
-  host: 'hub-cloud.browserstack.com',
+  specs: ['./tests/specs/local_test.js'],
 
   before: function () {
     var chai = require('chai');
@@ -69,4 +55,6 @@ exports.config = {
       });
     });
   }
-}
+};
+
+exports.config = {...baseConfig, ...localConfig};
