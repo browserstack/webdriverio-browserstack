@@ -1,19 +1,22 @@
-describe("Google's Search Functionality", () => {
-  it("can find search results", () => {
-    browser.url("https://www.google.com/ncr");
-    const inputForm = $("//input[@name='q']");
-    inputForm.setValue(["BrowserStack", "Enter"]); // this helps in majority desktops
+const { assert } = require("chai");
 
-    try {
-      browser.waitUntil(() => browser.getTitle().match(/BrowserStack/i));
-    } catch (e) {
-      browser.elementSubmit(inputForm.elementId); // this helps in remaining cases, i.e. iPhone
-    }
-
-    browser.waitUntil(
-      () => browser.getTitle().match(/BrowserStack/i),
+describe("Testing with Bstackdemo", () => {
+  it("can find search results", async () => {
+    await browser.url("https://bstackdemo.com/");
+    await browser.waitUntil(
+      async () => (await browser.getTitle()).match(/StackDemo/i),
       5000,
       "Title didn't match with BrowserStack"
     );
+    const productOnScreen = await $('//*[@id="1"]/p');
+    const productOnScreenText = await productOnScreen.getText();
+
+    const addToCart = await $('//*[@id="1"]/div[4]');
+    await addToCart.click();
+
+    const productInCart = await $('//*[@id="__next"]/div/div/div[2]/div[2]/div[2]/div/div[3]/p[1]');
+    const productInCartText = await productInCart.getText();
+
+    assert(productOnScreenText == productInCartText, "Product did'nt matched");
   });
 });
