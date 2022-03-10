@@ -1,41 +1,16 @@
-var browserstack = require('browserstack-local');
+const { config: baseConfig } = require("./base.conf.js");
+const browserstack = require('browserstack-local');
 
-exports.config = {
-  user: process.env.BROWSERSTACK_USERNAME || 'BROWSERSTACK_USERNAME',
-  key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACC_KEY',
 
-  updateJob: false,
-  specs: [
-    './tests/specs/local_test.js'
-  ],
-  exclude: [],
-
+const localConfig = {
+  // Adding browserstackLocal to browserstack-service to initiate local binary
   capabilities: [{
     browserName: 'chrome',
-    name: 'local_test',
     build: 'browserstack-build-1',
-    'browserstack.local': true
+    name: 'BrowserStack Local Test',
+    "browserstack.local": true // For enabling local testing for the session
   }],
-
-  logLevel: 'warn',
-  coloredLogs: true,
-  screenshotPath: './errorShots/',
-  baseUrl: '',
-  waitforTimeout: 10000,
-  connectionRetryTimeout: 90000,
-  connectionRetryCount: 3,
-  host: 'hub-cloud.browserstack.com',
-
-  before: function () {
-    var chai = require('chai');
-    global.expect = chai.expect;
-    chai.Should();
-  },
-  framework: 'mocha',
-  mochaOpts: {
-    ui: 'bdd',
-    timeout: 60000
-  },
+  specs: ['./tests/specs/local_test.js'],
 
   // Code to start browserstack local before start of test
   onPrepare: function (config, capabilities) {
@@ -69,4 +44,6 @@ exports.config = {
       });
     });
   }
-}
+};
+
+exports.config = { ...baseConfig, ...localConfig };

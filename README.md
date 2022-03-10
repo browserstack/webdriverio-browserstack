@@ -13,9 +13,8 @@ Master branch contains **Selenium 3** samples, for **Selenium 4 - W3C protocol**
 * You can setup environment variables for all sample repos (see Notes) or update `*.conf.js` files inside the `conf/` directory with your [BrowserStack Username and Access Key](https://www.browserstack.com/accounts/settings)
 
 ## Running your tests
-- To run a single test, run `npm run single`
-- To run local tests, run `npm run local`
-- To run parallel tests, run `npm run parallel`
+- To run parallel tests, run `npm run test`
+- To run local test, run `npm run local`
 
  Understand how many parallel sessions you need by using our [Parallel Test Calculator](https://www.browserstack.com/automate/parallel-calculator?ref=github)
 
