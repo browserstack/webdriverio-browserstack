@@ -28,7 +28,6 @@
     "webdriverio": "^5.23.0"
   },
   "devDependencies": {
-    "@browserstack/wdio-browserstack-service": "^1.0.1",
     "@wdio/local-runner": "^5.23.0",
     "@wdio/mocha-framework": "^5.18.7"
   }
