@@ -20,7 +20,7 @@ exports.config = {
   waitforTimeout: 10000,
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
-  host: 'hub.browserstack.com',
+  hostname: 'hub.browserstack.com',
   services: [['@browserstack/wdio-browserstack-service']],
 
   before: function () {
