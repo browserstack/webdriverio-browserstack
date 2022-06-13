@@ -22,13 +22,13 @@
   },
   "homepage": "https://github.com/browserstack/webdriverio-browserstack#readme",
   "dependencies": {
-    "@wdio/cli": "^5.23.0",
+    "@wdio/cli": "^7.20.2",
     "chai": "^4.3.6",
-    "webdriverio": "^5.23.0"
+    "webdriverio": "^7.20.2"
   },
   "devDependencies": {
-    "@browserstack/wdio-browserstack-service": "^1.0.2",
-    "@wdio/local-runner": "^5.23.0",
-    "@wdio/mocha-framework": "^5.18.7"
+    "@wdio/browserstack-service": "^7.20.2",
+    "@wdio/local-runner": "^7.20.2",
+    "@wdio/mocha-framework": "^7.20.0"
   }
 }

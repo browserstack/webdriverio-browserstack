@@ -8,11 +8,6 @@ exports.config = {
   ],
   exclude: [],
 
-  capabilities: [{
-    browserName: 'Chrome',
-    build: 'browserstack-build-1',
-  }],
-
   logLevel: 'warn',
   coloredLogs: true,
   screenshotPath: './errorShots/',
@@ -21,7 +16,7 @@ exports.config = {
   connectionRetryTimeout: 90000,
   connectionRetryCount: 3,
   hostname: 'hub.browserstack.com',
-  services: [['@browserstack/wdio-browserstack-service']],
+  services: [['@wdio/browserstack-service']],
 
   before: function () {
     var chai = require('chai');
