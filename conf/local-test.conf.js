@@ -4,7 +4,7 @@ const localConfig = {
   // Adding browserstackLocal to browserstack-service to initiate local binary
   services: [
     [
-      '@wdio/browserstack-service',
+      'browserstack',
       { browserstackLocal: true, opts: { forcelocal: false } },
     ],
   ],
