@@ -4,6 +4,7 @@ const parallelConfig = {
   maxInstances: 10,
   commonCapabilities: {
     build: 'browserstack-build-1',
+    'browserstack.source': 'webdriverio:sample-v5-v1.0'
   },
   capabilities: [{
     browserName: 'chrome',
