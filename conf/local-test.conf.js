@@ -6,7 +6,7 @@ const localConfig = {
   capabilities: [{
     browserName: 'chrome',
     build: 'browserstack-build-1',
-    'browserstack.source': 'webdriverio:sample-v5-v1.0'
+    'browserstack.source': 'webdriverio:sample-v5:v1.0'
   }],
   specs: ['./tests/specs/local_test.js']
 };
