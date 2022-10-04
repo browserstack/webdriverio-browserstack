@@ -5,7 +5,7 @@ const parallelConfig = {
   commonCapabilities: {
     'bstack:options': {
       buildName: 'browserstack-build-1',
-      source: 'webdriverio:sample-v7-v1.0'
+      source: 'webdriverio:sample-v7:v1.0'
     }
   },
   capabilities: [
