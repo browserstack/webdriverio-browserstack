@@ -18,7 +18,7 @@ exports.config = {
   screenshotPath: './errorShots/',
   baseUrl: '',
   waitforTimeout: 10000,
-  connectionRetryTimeout: 90000,
+  connectionRetryTimeout: 120000,
   connectionRetryCount: 3,
   hostname: 'hub.browserstack.com',
   services: [['@browserstack/wdio-browserstack-service']],
