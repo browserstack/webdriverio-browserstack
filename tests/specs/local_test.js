@@ -1,4 +1,4 @@
-describe('BrowserStack Local Testing', () => {
+describe('BStack Local Testing', () => {
   it('can check tunnel working', async () => {
     await browser.url('http://bs-local.com:45454');
     await browser.waitUntil(
