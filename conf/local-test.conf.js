@@ -5,7 +5,14 @@ const localConfig = {
   services: [
     [
       'browserstack',
-      { browserstackLocal: true, opts: { forcelocal: false } },
+      { 
+        browserstackLocal: true, 
+        buildIdentifier: '#${BUILD_NUMBER}', 
+        opts: { 
+          forcelocal: false, 
+          localIdentifier: 'webdriverio-browserstack-repo' 
+        } 
+      },
     ],
   ],
   capabilities: [
@@ -13,8 +20,8 @@ const localConfig = {
       browserName: 'chrome',
       browserVersion: 'latest',
       'bstack:options': {
-        buildName: 'browserstack-build-1',
-        source: 'webdriverio:sample-master:v1.1'
+        buildName: 'browserstack build',
+        source: 'webdriverio:sample-master:v1.2'
       }
     },
   ],
