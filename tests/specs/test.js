@@ -1,4 +1,4 @@
-describe("Testing with Bstackdemo", () => {
+describe("Testing with BStackDemo", () => {
   it("add product to cart", async () => {
     await browser.url("https://bstackdemo.com/");
     await browser.waitUntil(
