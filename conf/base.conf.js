@@ -21,9 +21,16 @@ exports.config = {
     global.expect = chai.expect;
     chai.Should();
   },
+  afterTest: async (test, context, { error, result, duration, passed, retries }) => {
+    console.log(`~~~~~~~~~~~~~~~~~~~~~~~~ AFTER TEST HOOK TIMESTAMP :: ${Date.now()} ~~~~~~~~~~~~~~~~~~~~~~~~`)
+  },
+  after: function (result, capabilities, specs) {
+    console.log(`~~~~~~~~~~~~~~~~~~~~~~~~ AFTER HOOK TIMESTAMP :: ${Date.now()} ~~~~~~~~~~~~~~~~~~~~~~~~`)
+  },
+
   framework: 'mocha',
   mochaOpts: {
     ui: 'bdd',
-    timeout: 60000,
+    timeout: 5000,
   },
 };

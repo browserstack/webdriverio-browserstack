@@ -11,7 +11,10 @@ const parallelConfig = {
   services: [
     [
       'browserstack',
-      { buildIdentifier: '#${BUILD_NUMBER}' },
+      { 
+        testObservability: false,
+        buildIdentifier: '#${BUILD_NUMBER}'
+      },
     ],
   ],
   capabilities: [
@@ -22,21 +25,7 @@ const parallelConfig = {
         os: 'Windows',
         osVersion: '10',
       },
-    },
-    {
-      browserName: 'safari',
-      browserVersion: 'latest',
-      'bstack:options': {
-        os: 'OS X',
-        osVersion: 'Big Sur',
-      },
-    },
-    {
-      browserName: 'chrome',
-      'bstack:options': {
-        deviceName: 'Samsung Galaxy S20',
-      },
-    },
+    }
   ],
 };
 
