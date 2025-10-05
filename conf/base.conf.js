@@ -3,7 +3,7 @@ exports.config = {
   key: process.env.BROWSERSTACK_ACCESS_KEY || 'BROWSERSTACK_ACCESS_KEY',
 
   updateJob: false,
-  specs: ['./tests/specs/test.js'],
+  specs: ['./tests/m*/**'],
   exclude: [],
 
   logLevel: 'warn',
