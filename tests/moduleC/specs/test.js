@@ -8,7 +8,7 @@ describe("BStackDemo Tests Module C", () => {
     );
   });
 
-  it("flaky test - random product selection", async () => {
+  it("module C - flaky test - random product selection", async () => {
     const randomProductIndex = Math.random() > 0.5 ? "1" : "2000";
     const productOnScreen = await $(`//*[@id="${randomProductIndex}"]/p`);
     const productOnScreenText = await productOnScreen.getText();
@@ -23,37 +23,37 @@ describe("BStackDemo Tests Module C", () => {
     );
   });
 
-  it("always failing test - missing element 1", async () => {
+  it("module C - always failing test - missing element 1", async () => {
     const nonExistentElement = await $('//*[@id="non-existent-1"]/p');
     await nonExistentElement.click(); // This will throw an error
   });
 
-  it("always failing test - missing element 2", async () => {
+  it("module C - always failing test - missing element 2", async () => {
     const nonExistentElement = await $('//*[@id="non-existent-2"]/p');
     await nonExistentElement.click(); // This will throw an error
   });
 
-  it("always failing test - same stacktrace 1", async () => {
+  it("module C - always failing test - same stacktrace 1", async () => {
     const nonExistentElement = await $('//*[@id="common-error"]/p');
     await nonExistentElement.click(); // This will throw an error
   });
 
-  it("always failing test - same stacktrace 2", async () => {
+  it("module C - always failing test - same stacktrace 2", async () => {
     const nonExistentElement = await $('//*[@id="common-error"]/p');
     await nonExistentElement.click(); // This will throw an error
   });
 
-  it("always failing test - same stacktrace 3", async () => {
+  it("module C - always failing test - same stacktrace 3", async () => {
     const nonExistentElement = await $('//*[@id="common-error"]/p');
     await nonExistentElement.click(); // This will throw an error
   });
 
-  it("passing test - verify page title", async () => {
+  it("module C - passing test - verify page title", async () => {
     const title = await browser.getTitle();
     expect(title).to.match(/StackDemo/i); // Use 'match' instead of 'toMatch'
   });
 
-  it("Test with framework-level retry - 2 retries configured", function () {
+  it("module C - Test with framework-level retry - 2 retries configured", function () {
     this.retries(2); // Framework-level retry
     const randomOutcome = Math.random() > 0.7; // 30% chance of passing
     if (!randomOutcome) {
