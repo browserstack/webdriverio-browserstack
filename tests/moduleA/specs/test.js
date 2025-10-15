@@ -1,4 +1,5 @@
 describe("BStackDemo Tests Module A", () => {
+  // common hook for all tests - navigating to the URL and verifying the title
   before(async () => {
     await browser.url("https://bstackdemo.com/");
     await browser.waitUntil(
@@ -8,7 +9,7 @@ describe("BStackDemo Tests Module A", () => {
     );
   });
 
-  it("module A - flaky test - random product selection", async () => {
+  it("flaky test - random product selection", async () => {
     const randomProductIndex = Math.random() > 0.5 ? "1" : "2000";
     const productOnScreen = await $(`//*[@id="${randomProductIndex}"]/p`);
     const productOnScreenText = await productOnScreen.getText();
@@ -23,37 +24,43 @@ describe("BStackDemo Tests Module A", () => {
     );
   });
 
-  it("module A - always failing test - missing element 1", async () => {
+  it("always failing test - missing element 1", async () => {
     const nonExistentElement = await $('//*[@id="non-existent-1"]/p');
     await nonExistentElement.click(); // This will throw an error
   });
 
-  it("module A - always failing test - missing element 2", async () => {
-    const nonExistentElement = await $('//*[@id="non-existent-2"]/p');
-    await nonExistentElement.click(); // This will throw an error
-  });
-
-  it("module A - always failing test - same stacktrace 1", async () => {
+  it("always failing test - same stacktrace 1", async () => {
     const nonExistentElement = await $('//*[@id="common-error"]/p');
     await nonExistentElement.click(); // This will throw an error
   });
 
-  it("module A - always failing test - same stacktrace 2", async () => {
+  it("always failing test - same stacktrace 2", async () => {
     const nonExistentElement = await $('//*[@id="common-error"]/p');
     await nonExistentElement.click(); // This will throw an error
   });
 
-  it("module A - always failing test - same stacktrace 3", async () => {
-    const nonExistentElement = await $('//*[@id="common-error"]/p');
-    await nonExistentElement.click(); // This will throw an error
+  it("Always Passing Test - example F", async () => {
+    expect(true).to.equal(true);
   });
 
-  it("module A - passing test - verify page title", async () => {
+  it("Always Passing Test - example G", async () => {
+    expect(true).to.equal(true);
+  });
+
+  it("Always Passing Test - example H", async () => {
+    expect(true).to.equal(true);
+  });
+
+  it("Always Passing Test - example I", async () => {
+    expect(true).to.equal(true);
+  });
+
+  it("passing test - verify page title", async () => {
     const title = await browser.getTitle();
     expect(title).to.match(/StackDemo/i); // Use 'match' instead of 'toMatch'
   });
 
-  it("module A - Test with framework-level retry - 2 retries configured", function () {
+  it("Test with framework-level retry - 2 retries configured", function () {
     this.retries(2); // Framework-level retry
     const randomOutcome = Math.random() > 0.7; // 30% chance of passing
     if (!randomOutcome) {
@@ -61,7 +68,15 @@ describe("BStackDemo Tests Module A", () => {
     }
   });
 
-  it("module A - always passing test - example A", async () => {
+  it("Another Test with framework-level retry - 2 retries configured", function () {
+    this.retries(2); // Framework-level retry
+    const randomOutcome = Math.random() > 0.7; // 30% chance of passing
+    if (!randomOutcome) {
+      throw new Error("Test failed, retrying...");
+    }
+  });
+
+  it("always passing test - example A", async () => {
     const url = await browser.getUrl();
     expect(url).to.include("bstackdemo");
   });
