@@ -3,10 +3,23 @@ const parallelConfig = {
   maxInstances: 10,
   commonCapabilities: {
     'bstack:options': {
-      projectName: 'sample-tests-ai',
-      buildName: 'wdio-mocha-automate'
+      buildName: 'Browserstack Build',
+      source: 'webdriverio:sample-master:v1.2',
+      projectName: 'Browserstack Samples',
     }
   },
+  services: [
+    [
+      'browserstack',
+      { 
+        buildIdentifier: '#${BUILD_NUMBER}',
+        testObservability: true,
+        testObservabilityOptions: {
+          buildTag: ['bstack_sample']
+        }
+      },
+    ],
+  ],
   capabilities: [
     {
       browserName: 'Chrome',
@@ -34,7 +47,9 @@ const parallelConfig = {
     }
   ],
 };
+
 exports.config = { ...baseConfig, ...parallelConfig };
+
 // Code to support common capabilities
 exports.config.capabilities.forEach(function (caps) {
   for (var i in exports.config.commonCapabilities)
