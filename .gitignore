@@ -1,3 +1,4 @@
 node_modules/
 local.log
 errorShots
+package-lock.json
