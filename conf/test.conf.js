@@ -1,42 +1,50 @@
 const { config: baseConfig } = require('./base.conf.js');
-
 const parallelConfig = {
   maxInstances: 10,
   commonCapabilities: {
     'bstack:options': {
-      buildName: 'browserstack build',
-      source: 'webdriverio:sample-master:v1.2'
+      buildName: 'Browserstack Build',
+      source: 'webdriverio:sample-master:v1.2',
+      projectName: 'Browserstack Samples',
     }
   },
   services: [
     [
       'browserstack',
-      { buildIdentifier: '#${BUILD_NUMBER}' },
+      { 
+        buildIdentifier: '#${BUILD_NUMBER}',
+        testObservability: true,
+        testObservabilityOptions: {
+          buildTag: ['bstack_sample']
+        }
+      },
     ],
   ],
   capabilities: [
     {
-      browserName: 'chrome',
-      browserVersion: 'latest',
+      browserName: 'Chrome',
       'bstack:options': {
+        browserVersion: '120.0',
         os: 'Windows',
-        osVersion: '10',
-      },
+        osVersion: '10'
+      }
     },
     {
-      browserName: 'safari',
-      browserVersion: 'latest',
+      browserName: 'Safari',
       'bstack:options': {
+        browserVersion: '15.6',
         os: 'OS X',
-        osVersion: 'Big Sur',
-      },
+        osVersion: 'Monterey'
+      }
     },
     {
-      browserName: 'chrome',
+      browserName: 'Chromium',
       'bstack:options': {
-        deviceName: 'Samsung Galaxy S20',
-      },
-    },
+        deviceOrientation: 'portrait',
+        deviceName: 'iPhone 13',
+        osVersion: '15'
+      }
+    }
   ],
 };
 
