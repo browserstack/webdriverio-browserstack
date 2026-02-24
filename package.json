@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "@wdio/browserstack-service": "^7",
-    "@wdio/local-runner": "^7",
+    "@wdio/local-runner": "^9",
     "@wdio/mocha-framework": "^7"
   }
 }
